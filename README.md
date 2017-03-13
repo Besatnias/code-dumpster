@@ -1,0 +1,3 @@
+# code-dumpster
+
+The stuff I write and then do nothing with, or the stuff I write as theory or for future reference, it all goes in here...
