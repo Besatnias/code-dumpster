@@ -25,7 +25,7 @@ User.prototype.api = function(method, form) {
 User.prototype._getUpdates = function(offset) {
   let opts;
   opts = offset ? {offset: offset, timeout: 60} : {timeout: 60}
-    return api("getUpdates", opts).then(res=>{
+    return this.api("getUpdates", opts).then(res=>{
         this.handler(res) // create a handler
         if(res.result.length > 0) {
           let offset = res.result[res.result.length - 1].update_id + 1
@@ -48,7 +48,7 @@ User.prototype.sendMessage = function(chatId, text, opts) {
     opts.text = opts.text || text
   }
   if (!chatId) throw "No parameters were passed"
-  return api('sendMessage', opts)
+  return this.api('sendMessage', opts)
 }
 
 const bot = new User({token: ''})
