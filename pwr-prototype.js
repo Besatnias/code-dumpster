@@ -21,7 +21,7 @@ const User = function(opts){
     })
   }
 
-  this._getUpdates (offset) {
+  this._getUpdates = function(offset) {
     let opts;
     opts = offset ? {offset: offset, timeout: 60} : {timeout: 60}
       return api("getUpdates", opts).then(res=>{
@@ -35,11 +35,11 @@ const User = function(opts){
       })
   }
 
-  this.startPolling(){
+  this.startPolling = function(){
     return this._getUpdates(0)
   }
 
-  this.sendMessage (chatId, text, opts) {
+  this.sendMessage = function(chatId, text, opts) {
     if (typeof chatId === 'object') {
       opts = chatId
     } else {
