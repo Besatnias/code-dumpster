@@ -1,4 +1,39 @@
 defmodule Tex do
+  @moduledoc """
+
+  It should try to use json or x-www-form-urlencoded
+  unless it's a file, then multipart
+  so for sendPhoto, sendAudio, sendDocument, sendSticker, etc.
+  check type (Remember, no type checking but "if not file, multipart, else, querystring")
+
+  so Tex.req takes "file" as third argument, it should be 0 if querystring, 1 if multipart
+  example: req "sendPhoto", {form: values}, 1
+
+  if it is multipart, I don't know how it would be done, but I assume it would look like
+  {:multipart, [multipart], :body, {json????}}
+
+  multipart:
+
+  HTTPoison.start
+
+  tup = {
+    :multipart,
+    [
+      {
+        :file,
+        "path/to/file",
+        {
+          ["form-data"],
+          [name: "\"photo\"", filename: "\"/path/to/file\""]
+        },
+        []
+      }
+    ]
+  }
+  request = HTTPoison.post!(url, tup, headers, options)
+
+  """
+  
   @doc """
   Makes a post request to Telegram with the given parameters
 
@@ -14,10 +49,10 @@ defmodule Tex do
     %Response{"ok" => true, "result" => []}
 
   """
-  def req (method, form, file) do
+  def req(method, form, file) do
     cond do
       file == false ->
-        {status, body} = URI.encode form
+        {status, body} = URI.encode_query(form)
       file == true ->
         # This should recognize the file looking for photo, sticker, document, etc.,
         # and create a multipart form with it ? is it easy to iterate over map and keep the inner structure?
@@ -45,37 +80,3 @@ end
 
 HTTPoison.start
 Tex.test
-@moduledoc """
-
-It should try to use json or x-www-form-urlencoded
-unless it's a file, then multipart
-so for sendPhoto, sendAudio, sendDocument, sendSticker, etc.
-check type (Remember, no type checking but "if not file, multipart, else, querystring")
-
-so Tex.req takes "file" as third argument, it should be 0 if querystring, 1 if multipart
-example: req "sendPhoto", {form: values}, 1
-
-if it is multipart, I don't know how it would be done, but I assume it would look like
-{:multipart, [multipart], :body, {json????}}
-
-multipart:
-
-HTTPoison.start
-
-tup = {
-  :multipart,
-  [
-    {
-      :file,
-      "path/to/file",
-      {
-        ["form-data"],
-        [name: "\"photo\"", filename: "\"/path/to/file\""]
-      },
-      []
-    }
-  ]
-}
-request = HTTPoison.post!(url, tup, headers, options)
-
-"""
