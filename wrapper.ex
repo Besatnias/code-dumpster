@@ -12,7 +12,7 @@ end
 
 defmodule Tex do
   def req(method, form) do
-    token = Poison.decode!(File.read! "secrets")["telegram"]["bot"]["test"] #This should be specified on initialization, however that is done
+    token = Poison.decode!(File.read! "secrets")["telegram"]["bot"]["test"]
     url = "https://api.telegram.org/bot#{token}/#{method}"
     {:ok, result} = HTTPoison.post url, form
     IO.puts Poison.encode! result
