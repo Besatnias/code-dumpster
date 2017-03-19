@@ -24,3 +24,6 @@ map = %{
 
 IO.inspect Util.tokey map
 #=> [caligueva: [speeking: "speeeeeeee"], test: "teet", tututu: "tururuuu"]
+
+IO.inspect Util.to_keyword_list map
+#=> [caligueva: %{"speeking" => "speeeeeeee"}, test: "teet", tututu: "tururuuu"]
