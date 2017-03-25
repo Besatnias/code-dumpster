@@ -29,7 +29,7 @@ Tests and results
     (httpoison) lib/httpoison.ex:66: HTTPoison.request!/5
 ```
 
-FunctionClauseError:
+- FunctionClauseError:
 
 ```HTTPoison.post!(url, {:multipart, [{["form-data"], [chat_id: 237799109], []}, {:file, "files/aphoto.jpg", {["form-data"], [name: "photo", filename: "aphoto.jpg"]}, []} ]}, [], [])```
 
@@ -101,6 +101,8 @@ FunctionClauseError:
     (httpoison) lib/httpoison/base.ex:432: HTTPoison.Base.request/9
     (httpoison) lib/httpoison.ex:66: HTTPoison.request!/5
 ```
+
+- Textual result of successful connections
 
 ```HTTPoison.post!("http://servIP:8080", {:multipart, [{:file, "files/pixel.jpg", [name: "photo", filename: "pixel.jpg"]}]})```
 
