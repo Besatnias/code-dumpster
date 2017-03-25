@@ -1,6 +1,6 @@
-#Tests and results
+# Tests and results
 
-##ArgumentError:
+## ArgumentError:
 
 1:
 ```HTTPoison.post!("http://servIP:8080", {:multipart, [name: "photo", filename: "pixel.jpg"]})```
@@ -16,7 +16,7 @@
     (hackney) c:/Users/venta/projects/elixir/wrapper/deps/hackney/src/hackney.erl:373: :hackney.send_request/2
 ```
 
-##CaseClauseError:
+## CaseClauseError:
 
 ```HTTPoison.post!(url, {:multipart, {["form-data"], [chat_id: 237799109], []}, {:file, "files/aphoto.jpg", {["form-data"], [name: "photo", filename: "aphoto.jpg"]}, []}}, [], [])```
 
@@ -29,7 +29,7 @@
     (httpoison) lib/httpoison.ex:66: HTTPoison.request!/5
 ```
 
-##FunctionClauseError:
+## FunctionClauseError:
 
 ```HTTPoison.post!(url, {:multipart, [{["form-data"], [chat_id: 237799109], []}, {:file, "files/aphoto.jpg", {["form-data"], [name: "photo", filename: "aphoto.jpg"]}, []} ]}, [], [])```
 
@@ -102,7 +102,7 @@
     (httpoison) lib/httpoison.ex:66: HTTPoison.request!/5
 ```
 
-##Textual result of successful connections
+## Textual result of successful connections
 
 ```HTTPoison.post!("http://servIP:8080", {:multipart, [{:file, "files/pixel.jpg", [name: "photo", filename: "pixel.jpg"]}]})```
 
