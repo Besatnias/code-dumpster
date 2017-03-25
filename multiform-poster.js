@@ -6,10 +6,10 @@ const form = {
 		chat_id: 237799109,
 		photo: {
 			value: fs.createReadStream("files/photo.jpg"),
-	        options: {
-	            filename: 'photo.jpg',
-	            contentType: 'image/jpg'
-	        }
+			options: {
+			    filename: 'photo.jpg',
+			    contentType: 'image/jpg'
+			}
 		}
 	}
 }
