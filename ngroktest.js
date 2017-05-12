@@ -4,13 +4,7 @@ const Tg = require('node-telegram-bot-api');
 const moment = require('moment');
 const rangi = require('rangi');
 const ngrok = require('ngrok');
-
-const fs = require('fs'),
-    secrets = fs.readFileSync("secrets"),
-    vars = JSON.parse(secrets),
-    token = vars.telegram.bot.test,
-    _ = require('lodash');
-
+const token = token
 let ngrokTunnel;
 
 const tunnelIt = () => {
